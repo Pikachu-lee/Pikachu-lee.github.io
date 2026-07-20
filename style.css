@@ -313,3 +313,43 @@ footer{
 }
 
 }
+/* ===========================
+   PROJECTS
+=========================== */
+
+.repo-card{
+    background:#161b22;
+    border:1px solid #30363d;
+    border-radius:15px;
+    padding:25px;
+    transition:.3s;
+}
+
+.repo-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(0,229,255,.4);
+}
+
+.repo-card h3{
+    color:#00e5ff;
+    margin-bottom:15px;
+}
+
+.repo-card p{
+    color:#c9d1d9;
+    margin-bottom:20px;
+}
+
+.repo-card a{
+    display:inline-block;
+    text-decoration:none;
+    background:#00e5ff;
+    color:#111;
+    padding:10px 20px;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.repo-card a:hover{
+    box-shadow:0 0 15px #00e5ff;
+}
