@@ -1,1 +1,131 @@
 
+// ===============================
+// Smooth Active Navigation
+// ===============================
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.clientHeight;
+
+        if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+
+    });
+
+});
+
+
+// ===============================
+// Reveal Animation on Scroll
+// ===============================
+
+const revealElements = document.querySelectorAll(
+".card, .education-card, .skill-box, .gallery-card, .contact-box"
+);
+
+const reveal = () => {
+
+    revealElements.forEach(element => {
+
+        const windowHeight = window.innerHeight;
+        const revealTop = element.getBoundingClientRect().top;
+        const revealPoint = 120;
+
+        if (revealTop < windowHeight - revealPoint) {
+
+            element.style.opacity = "1";
+            element.style.transform = "translateY(0px)";
+
+        }
+
+    });
+
+};
+
+revealElements.forEach(element => {
+
+    element.style.opacity = "0";
+    element.style.transform = "translateY(40px)";
+    element.style.transition = "0.7s ease";
+
+});
+
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
+
+
+// ===============================
+// Scroll To Top Button
+// ===============================
+
+const topButton = document.createElement("button");
+
+topButton.innerHTML = "↑";
+
+topButton.id = "topButton";
+
+document.body.appendChild(topButton);
+
+topButton.style.position = "fixed";
+topButton.style.bottom = "25px";
+topButton.style.right = "25px";
+topButton.style.width = "50px";
+topButton.style.height = "50px";
+topButton.style.border = "none";
+topButton.style.borderRadius = "50%";
+topButton.style.background = "#00e5ff";
+topButton.style.color = "#111";
+topButton.style.fontSize = "22px";
+topButton.style.cursor = "pointer";
+topButton.style.display = "none";
+topButton.style.boxShadow = "0 0 20px #00e5ff";
+topButton.style.zIndex = "999";
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 350) {
+
+        topButton.style.display = "block";
+
+    } else {
+
+        topButton.style.display = "none";
+
+    }
+
+});
+
+topButton.addEventListener("click", () => {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+
+// ===============================
+// Console Welcome Message
+// ===============================
+
+console.log("%cWelcome to HARISRAJ G Portfolio", "color:#00e5ff;font-size:18px;font-weight:bold;");
