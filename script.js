@@ -130,34 +130,3 @@ topButton.addEventListener("click", () => {
 
 console.log("%cWelcome to HARISRAJ G Portfolio", "color:#00e5ff;font-size:18px;font-weight:bold;");
 
-// ===============================
-// GitHub Repository Loader
-// ===============================
-
-const username = "Pikachu-lee";
-
-fetch(`https://api.github.com/users/${username}/repos?sort=updated`)
-.then(response => response.json())
-.then(repositories => {
-
-    const repoContainer = document.getElementById("repo-container");
-
-    repositories.slice(0,6).forEach(repo => {
-
-        repoContainer.innerHTML += `
-            <div class="repo-card">
-
-                <h3>${repo.name}</h3>
-
-                <p>${repo.description || "No description available."}</p>
-
-                <a href="${repo.html_url}" target="_blank">
-                    View Repository
-                </a>
-
-            </div>
-        `;
-
-    });
-
-});
